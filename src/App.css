@@ -1,0 +1,67 @@
+/*.App {*/
+/*  text-align: center;*/
+/*}*/
+
+/*.App-logo {*/
+/*  height: 40vmin;*/
+/*}*/
+
+/*.App-header {*/
+/*  background-color: #282c34;*/
+/*  min-height: 100vh;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  font-size: calc(10px + 2vmin);*/
+/*  color: white;*/
+/*}*/
+
+/*.App-link {*/
+/*  color: #09d3ac;*/
+/*}*/
+
+.gradient {
+  background-image: radial-gradient(
+          circle at top right,
+          #a1ecfb,
+          #27dafd 50%);
+}
+
+.blockDimension {
+  height: 100px;
+  width: 100px;
+}
+
+.blockInfoDimension {
+  border: 1px;
+  borderStyle:"solid";
+  height: 260px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.block {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.block:hover {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  transform: scale(1.1);
+}
+
+.recordsView {
+  overflow-y: auto;
+}
+
