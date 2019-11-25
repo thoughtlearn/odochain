@@ -14,7 +14,7 @@ class BlockChainView extends React.Component {
   }
   render () {
     return (
-        <div style={{ paddingLeft: 20, paddingRight: 20 }}>
+        <div className="padding20LR">
           <Project animate show header='BlockChain'>
             {anim => (
                 <div className="flex-container">
@@ -23,7 +23,7 @@ class BlockChainView extends React.Component {
                       <div key={index} className="block" onClick={this.showBlockInfo.bind(this, index)}>
                         <div className="gradient blockDimension">
                         </div>
-                        <p style={{textAlign:"center"}}> Block {index + 1} </p>
+                        <p className="blockChainText"> Block {index + 1} </p>
                       </div>
                     )
                   }

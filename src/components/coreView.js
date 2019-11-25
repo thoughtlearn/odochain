@@ -14,22 +14,22 @@ class CoreComponent extends Component {
   render() {
     return (
         <div>
-          <Row style={{margin: 15}}>
+          <Row className="buttonBar">
             <Col m={8}>
             </Col>
             <Col m={4}>
-              <div style={{textAlign: "right"}}>
+              <div className="pending-trans-div">
                 <Link to={'/pending-transactions'}>
-                  <Button animate show style={{paddingRight: "20px"}}> Pending Records </Button>
+                  <Button animate show className="pending-records-button"> Pending Records </Button>
                 </Link>
                 {/*<Button animate show layer={"alert"}> Hacker View </Button>*/}
               </div>
             </Col>
           </Row>
-          <Row style={{width: "100%"}}>
+          <Row className="blockChainParent">
             <BlockChainView blocks={this.props.blocks} setBlockInfo={this.props.setBlockInfo}/>
           </Row>
-          <Row style={{width: "100%", height: "430px"}}>
+          <Row className="blockDetailsParent">
             <Col m={6}>
               <BlockView currentBlock={this.props.currentBlock} blocks={this.props.blocks}/>
             </Col>

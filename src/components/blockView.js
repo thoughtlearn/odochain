@@ -14,8 +14,8 @@ class BlockView extends React.Component {
 
   frameBlockInfo (field, value) {
     let formattedValue = this.getValue(value);
-    return (<Row style={{margin: 0}}>
-      <Col m={6} style={{textAlign:"right"}}>
+    return (<Row className="margin-zero">
+      <Col m={6} className="block-field">
         <Heading node="h3"> {field}: </Heading>
       </Col>
       <Col m={6}>
@@ -33,7 +33,7 @@ class BlockView extends React.Component {
     let blockInfo = blocks[currentBlock];
     let block;
     if (!blockInfo) {
-      block = (<Heading node='h1' style={{paddingTop:"70px"}}>
+      block = (<Heading node='h1' className="empty-block">
         <Words animate show={anim.entered}>
           Select a Block from BlockChain to reveal its information
         </Words>
@@ -45,9 +45,9 @@ class BlockView extends React.Component {
             <Col m={4}>
                <div style={{}} className="gradient blockInfoDimension">
                </div>
-              <Heading node="h3" style={{paddingTop:10}}> Block {currentBlock + 1}</Heading>
+              <Heading node="h3" className="singleBlockText"> Block {currentBlock + 1}</Heading>
             </Col>
-            <Col m={8} style={{textAlign:"left"}}>
+            <Col m={8} className="singleBlockContent">
               {this.frameBlockInfo("Hash", blockInfo.hash)}
               {this.frameBlockInfo("Previous Hash", blockInfo.previous_hash)}
               {this.frameBlockInfo("TimeStamp", blockInfo.timestamp)}
@@ -65,10 +65,10 @@ class BlockView extends React.Component {
     // block = getBlockInfo();
 
     return (
-        <div style={{ paddingLeft: 20, paddingRight: 20 }}>
+        <div className="padding20LR">
           <Project animate header='Block Information'>
             {anim => (
-                <div style={{height: "300px", align:"center", textAlign:"center"}}>
+                <div className="blockViewContainer">
                   {this.getBlockInfo(anim)}
                 </div>
             )}

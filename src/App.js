@@ -8,6 +8,8 @@ import PendingTransactionView from "./components/PendingTransactionView";
 import {connect} from "react-redux";
 import actions from "./store/actions";
 
+import "./App.css"
+
 class App extends React.Component {
   constructor(props) {
     super(props);

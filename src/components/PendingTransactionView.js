@@ -1,5 +1,6 @@
 import {Button, Col, Heading, Row, Table} from "arwes";
 import React, { Component } from "react";
+import "../App.css"
 
 
 class PendingTransactionView extends Component {
@@ -33,9 +34,9 @@ class PendingTransactionView extends Component {
           <Row>
           <Col m={4}></Col>
           <Col m={4}>
-            <div style={{alignContent: "center"}}>
-                <Button style={{ width: 400, height: 50, textAlign: "center"}}>
-                  <Heading style={{ margin: 0}}>
+            <div className="miningButtonParent">
+                <Button className="miningButton">
+                  <Heading className="marginZero">
                     Start Mining
                   </Heading>
                 </Button>

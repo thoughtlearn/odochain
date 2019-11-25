@@ -3,16 +3,16 @@ import {Col, Header, Heading, Row} from "arwes";
 import {Link} from "react-router-dom";
 
 const OdoHeader = () => (
-  <Header animate style={{paddingBottom: "0px"}}>
-    <Row style={{ margin: 20 }}>
+  <Header animate className="headerBar">
+    <Row className="marginTwenty">
       <Col m={6}>
-        <Link to={"/"} style= {{textDecoration: 'none'}}>
-        <Heading node='h1'>ODOChain </Heading>
+        <Link to={"/"} className="headerLogo">
+        <Heading node='h1' className="odoHeaderText">ODOChain </Heading>
 
         </Link>
       </Col>
       <Col m={6}>
-        <Heading node='h1' style={{ textAlign: "right"}} theme="dark">Geek Night 2019 </Heading>
+        <Heading node='h1' className="gn-name" theme="dark">Geek Night 2019 </Heading>
       </Col>
     </Row>
   </Header>

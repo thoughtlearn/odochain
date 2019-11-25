@@ -1,6 +1,5 @@
 import React from 'react';
 import {Heading, Project, Table, Words} from "arwes";
-import "../App.css"
 
 class OdoRecordsView extends React.Component {
   constructor (props) {
@@ -31,7 +30,7 @@ class OdoRecordsView extends React.Component {
   getOdometerRecords (anim) {
     if (!this.state.records.length) {
       return (
-          <Heading node='h1' style={{paddingTop:"70px"}}>
+          <Heading node='h1' className="odoMeterText">
             <Words animate show={anim.entered}>
               Select a Block from BlockChain to reveal its Odo Records.
             </Words>
@@ -39,7 +38,7 @@ class OdoRecordsView extends React.Component {
       );
     } else {
       return (
-          <div style={{height:280, overflow: "auto"}}>
+          <div className="odo-tableParent">
             <Table
                 animate show
                 headers={this.state.headers}
@@ -52,10 +51,10 @@ class OdoRecordsView extends React.Component {
 
   render () {
     return (
-        <div style={{ paddingLeft: 20, paddingRight: 20 }}>
+        <div className="padding20LR">
           <Project animate header='OdoMeter Records'>
             {anim => (
-                <div style={{height: "300px", align:"center", textAlign:"center"}}>
+                <div className="odoRecordsView">
                   { this.getOdometerRecords(anim) }
                 </div>
             )}

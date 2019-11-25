@@ -1,25 +1,3 @@
-/*.App {*/
-/*  text-align: center;*/
-/*}*/
-
-/*.App-logo {*/
-/*  height: 40vmin;*/
-/*}*/
-
-/*.App-header {*/
-/*  background-color: #282c34;*/
-/*  min-height: 100vh;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  font-size: calc(10px + 2vmin);*/
-/*  color: white;*/
-/*}*/
-
-/*.App-link {*/
-/*  color: #09d3ac;*/
-/*}*/
 
 .gradient {
   background-image: radial-gradient(
@@ -65,3 +43,123 @@
   overflow-y: auto;
 }
 
+.padding20LR {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.blockChainText {
+  text-align: center;
+}
+
+.blockViewContainer {
+  height: 300px;
+  align:center;
+  text-align:center;
+}
+
+.buttonBar {
+  margin: 15px;
+}
+
+.pending-trans-div {
+  text-align: right;
+}
+
+.pending-records-button {
+  padding-right: 20px;
+}
+
+.blockChainParent {
+  width: 100%;
+}
+
+.blockDetailsParent {
+  width: 100%;
+  height: 430px;
+}
+
+.footerBar {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.footerDiv {
+  text-align:center;
+  padding-top: 10px;
+}
+
+.marginZero {
+  margin: 0 !important;
+}
+
+.tw-name {
+  text-align:left;
+  margin-left:110px !important;
+  padding-bottom:10px !important;
+}
+
+.headerBar {
+  padding-bottom: 0 !important;
+}
+
+.marginTwenty {
+  margin: 20px;
+}
+
+.odoHeaderText {
+  margin-bottom: 0 !important;
+}
+
+.headerLogo {
+  text-decoration: none;
+}
+
+.gn-name {
+  text-align: right;
+}
+
+.odoMeterText {
+  padding-top: 70px;
+}
+
+.odo-tableParent {
+  height:280px;
+  overflow:auto;
+}
+
+.odoRecordsView {
+  height: 300px;
+  align: center;
+  text-align: center;
+}
+
+.miningButtonParent {
+  align-content: center;
+}
+.miningButton {
+  text-align: center;
+  height: 50px;
+  width: 400px;
+}
+
+.singleBlockText {
+  padding-top: 10px;
+}
+
+.singleBlockContent {
+  text-align: left;
+}
+
+.empty-block {
+  padding-top:70px;
+}
+
+.block-field {
+  text-align: right;
+}
+
+.margin-zero {
+  margin: 0 !important;
+}
