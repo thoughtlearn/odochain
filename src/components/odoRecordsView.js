@@ -1,5 +1,6 @@
 import React from 'react';
 import {Heading, Project, Table, Words} from "arwes";
+import Popup from "reactjs-popup";
 
 class OdoRecordsView extends React.Component {
   constructor (props) {
@@ -30,11 +31,16 @@ class OdoRecordsView extends React.Component {
   getOdometerRecords (anim) {
     if (!this.state.records.length) {
       return (
-          <Heading node='h1' className="odoMeterText">
-            <Words animate show={anim.entered}>
-              Select a Block from BlockChain to reveal its Odo Records.
-            </Words>
-          </Heading>
+            <Heading node='h1' className="odoMeterText">
+              <Words animate show={anim.entered}>
+                {
+                  this.props.currentBlock === null ?
+                      ("Select a Block from BlockChain to reveal its Odo Records.")
+                    : ("No Records Found")
+                }
+
+              </Words>
+            </Heading>
       );
     } else {
       return (

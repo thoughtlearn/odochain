@@ -6,10 +6,22 @@ class BlockChain {
     this.chain = [this.createGenesisBlock()];
     this.difficulty = 2;
     this.pendingTransactions = [];
+    this.frameTransactions.bind(this);
   }
 
   createGenesisBlock() {
     return new Block(Date.parse('2019-11-24'), [], '0');
+  }
+
+  frameTransactions (transactions) {
+    return transactions.map(tx => {
+      return {
+        "id": tx.id,
+        "vin_number": tx.VIN,
+        "odo_value": tx.odoValue,
+        "timestamp": tx.timestamp
+      }
+    })
   }
 
   getBlocks() {
@@ -18,14 +30,8 @@ class BlockChain {
         "hash": block.hash,
         "previous_hash": block.previousHash,
         "timestamp": block.timestamp,
-        "data": block.transactions.map(tx => {
-                  return {
-                    "id": tx.id,
-                    "vin_number": tx.odoValue,
-                    "odo_value": tx.odoValue,
-                    "timestamp": tx.timestamp
-                  }
-                })
+        "nonce": block.nonce,
+        "data": this.frameTransactions(block.transactions)
       }
     });
   }
@@ -49,18 +55,24 @@ class BlockChain {
 
 
   addTransaction(transaction) {
-    if (!transaction.VIN) {
-      throw new Error('Transaction must include VIN Number');
-    }
-    if (this.getLatestOdometerValue(transaction.VIN) >= transaction.odoValue) {
-      throw new Error('[Data Tamper Alert] Invalid Odometer Value')
+    try {
+      if (!transaction.VIN) {
+        throw new Error('Transaction must include VIN Number');
+      }
+      if (this.getLatestOdometerValue(transaction.VIN) >= transaction.odoValue) {
+        throw new Error('[Data Tamper Alert] Invalid Odometer Value')
+      }
+
+      if (transaction.odoValue <= 0) {
+        throw new Error('Odometer value should be positive');
+      }
+      this.pendingTransactions.push(transaction);
+    } catch (e) {
+      console.log("----e");
+      console.log(e);
+      throw new Error(e.toString())
     }
 
-    if (transaction.odoValue <= 0) {
-      throw new Error('Odometer value should be positive');
-    }
-
-    this.pendingTransactions.push(transaction);
     return true;
   }
   //TODO: Get Latest Odo Value
@@ -123,7 +135,7 @@ class BlockChain {
     return this.pendingTransactions.map(tx => {
       return {
         "id": tx.id,
-        "vin_number": tx.odoValue,
+        "vin_number": tx.VIN,
         "odo_value": tx.odoValue,
         "timestamp": tx.timestamp
       }

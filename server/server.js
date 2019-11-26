@@ -4,22 +4,40 @@ const path = require('path');
 const app = express();
 const { BlockChain } = require('./blockchain/blockchain');
 const { Transaction } = require('./blockchain/transactions');
+const cors = require('cors');
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(cors());
 let blockChain = new BlockChain();
 
+const setHeaders = (res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, PUT, GET, DELETE');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Origin' +
+      ', Accept' +
+      ', X-Requested-With' +
+      ', Content-Type' +
+      ', Authorization',
+  );
+};
+
 app.get('/ping', function (req, res) {
+  setHeaders(res);
   return res.send('pong');
 });
 
 app.get('/blocks', function (req, res) {
+  setHeaders(res);
   let blocks = blockChain.getBlocks();
   res.send(blocks);
 });
 
 app.post('/transaction', function(req, res) {
+  setHeaders(res);
   try {
     let odoData = req.body;
     let transactionEntry = new Transaction(odoData.id, odoData.vin_number,
@@ -34,6 +52,17 @@ app.post('/transaction', function(req, res) {
 
 app.get('/pending-transactions', function(req, res) {
   res.send(blockChain.getPendingTransactions());
+});
+
+app.get('/check-odovalue', function(req, res) {
+  let vinValue = req.query.vin;
+  console.log("^^^^^^1")
+  console.log(vinValue);
+  console.log("^^^^^^12")
+  let odoValue = blockChain.getLatestOdometerValue(vinValue);
+  res.send({
+    "odo_value": odoValue
+  });
 });
 
 app.post('/mine-block', function(req, res) {

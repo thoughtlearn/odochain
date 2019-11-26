@@ -20,7 +20,7 @@ class App extends React.Component {
 
   render() {
     const {blocks, currentBlock} = this.props;
-    const {setBlockInfo, clearCurrentBlock} = this.props;
+    const {setBlockInfo, clearCurrentBlock, getBlocks} = this.props;
     return (
         <ThemeProvider theme={createTheme()}>
 
@@ -29,7 +29,7 @@ class App extends React.Component {
               <OdoHeader/>
               <Switch>
                 <Route exact path="/">
-                  <CoreComponent blocks={blocks} setBlockInfo={setBlockInfo} currentBlock={currentBlock}/>
+                  <CoreComponent blocks={blocks} setBlockInfo={setBlockInfo} currentBlock={currentBlock} getBlocks={getBlocks}/>
                 </Route>
                 <Route path="/pending-transactions">
                   <PendingTransactionView clearCurrentBlock={clearCurrentBlock}/>

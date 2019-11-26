@@ -3,7 +3,7 @@ import {Col, Header, Heading, Row} from "arwes";
 import {Link} from "react-router-dom";
 
 const OdoHeader = () => (
-  <Header animate className="headerBar">
+  <Header animate show className="headerBar">
     <Row className="marginTwenty">
       <Col m={6}>
         <Link to={"/"} className="headerLogo">

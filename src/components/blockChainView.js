@@ -14,17 +14,15 @@ class BlockChainView extends React.Component {
     this.props.setBlockInfo(blockIndex);
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    console.log("&&&&&&")
-    console.log(this.props.blocks);
-    console.log(nextProps.blocks);
-    console.log(_.isEqual(this.props.blocks, nextProps.blocks))
-    console.log("&&&&&&")
-    return !_.isEqual(this.props.blocks, nextProps.blocks);
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("Comp UPdatedd...")
   }
 
+
   render () {
-    console.log("-@----@-@-@-@-@-@-!!!")
+    console.log("-@----@-@-@-@-@-@-!!!");
+    console.log(this.props.blocks);
+    console.log("&&")
     return (
         <div className="padding20LR">
           <Project header='BlockChain'>

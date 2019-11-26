@@ -1,8 +1,11 @@
+import axios from "axios";
+
 const actions = {
   getBlocks: () => {
+    const blocks = axios.get('http://localhost:8080/blocks');
     return {
       type: 'FETCH_ALL_BLOCKS',
-      payload: {}
+      payload: blocks
     }
   },
   setBlockInfo: (blockIndex) => {
