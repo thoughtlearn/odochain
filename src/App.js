@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
         <ThemeProvider theme={createTheme()}>
 
-          <Arwes animate background='./images/background.jpg' pattern='./images/glow.png'>
+          <Arwes background='./images/background.jpg' pattern='./images/glow.png'>
             <Router>
               <OdoHeader/>
               <Switch>

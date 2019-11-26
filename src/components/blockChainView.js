@@ -1,8 +1,9 @@
 import React from 'react';
 import {Project} from "arwes";
 import '../App.css'
-import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
 
+import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
+const _ = require('lodash');
 
 class BlockChainView extends React.Component {
   constructor (props) {
@@ -12,10 +13,21 @@ class BlockChainView extends React.Component {
   showBlockInfo (blockIndex) {
     this.props.setBlockInfo(blockIndex);
   }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log("&&&&&&")
+    console.log(this.props.blocks);
+    console.log(nextProps.blocks);
+    console.log(_.isEqual(this.props.blocks, nextProps.blocks))
+    console.log("&&&&&&")
+    return !_.isEqual(this.props.blocks, nextProps.blocks);
+  }
+
   render () {
+    console.log("-@----@-@-@-@-@-@-!!!")
     return (
         <div className="padding20LR">
-          <Project animate show header='BlockChain'>
+          <Project header='BlockChain'>
             {anim => (
                 <div className="flex-container">
                   {
